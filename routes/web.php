@@ -13,3 +13,7 @@ Route::get('/pizza', function () {
 
 Route::post('/pizza', [PizzaController::class, 'Crear']);
 
+Route::get('/eliminar/{d}', [PizzaController::class, 'Eliminar']);
+
+Route::get('/modificar/{d}', [PizzaController::class, 'MostrarFormularioDeModificar']);
+Route::post('/modificar', [PizzaController::class, 'Modificar']);

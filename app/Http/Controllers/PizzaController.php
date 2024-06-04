@@ -23,4 +23,30 @@ class PizzaController extends Controller
         $pizzas = Pizza::all();
         return view("listarPizzas",["pizzas" => $pizzas]);
     }
+
+    public function Eliminar(Request $request, $id){
+        $pizza = Pizza::find($id);
+        $pizza -> delete();
+        return redirect("/")
+            ->with('eliminado',true);
+
+    }
+
+    public function MostrarFormularioDeModificar(Request $request, $id){
+        $pizza = Pizza::find($id);
+        return view("modificar", ["pizza" => $pizza] );
+    }
+
+    public function Modificar(Request $request){
+        $pizza = Pizza::find($request -> post("id"));
+        var_dump($pizza);die();
+        $pizza -> nombre = $request -> post("nombre");
+        $pizza -> precio = $request -> post("precio");
+
+        $pizza -> save();
+        return redirect("/")
+            ->with('modificado',true);
+
+
+    }
 }
