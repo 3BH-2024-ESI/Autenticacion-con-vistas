@@ -39,7 +39,6 @@ class PizzaController extends Controller
 
     public function Modificar(Request $request){
         $pizza = Pizza::find($request -> post("id"));
-        var_dump($pizza);die();
         $pizza -> nombre = $request -> post("nombre");
         $pizza -> precio = $request -> post("precio");
 

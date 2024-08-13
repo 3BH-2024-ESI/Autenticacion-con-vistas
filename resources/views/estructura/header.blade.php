@@ -12,6 +12,12 @@
 
     <img width=30% height=30% src="https://www.foodandwine.com/thmb/4qg95tjf0mgdHqez5OLLYc0PNT4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg" alt="" srcset="">
     <p>
+        @if(Auth::check())
+            Bienvenido {{ Auth::user() -> name }}. 
+            <a href="/logout">Cerrar sesión</a> <br>
+        @else
+            <a href="/login">Iniciar sesión</a><br>
+        @endif
         <a href="/"><b>Inicio</b></a>
-        <a href="/pizza"><b>Crear</b></a>
+        <a href="/pizza"><b>Crear</b></a> 
     </p>
